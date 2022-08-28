@@ -1,0 +1,9 @@
+LICENSE
+README.md
+pyproject.toml
+setup.cfg
+src/dbgprint/__init__.py
+src/dbgprint.egg-info/PKG-INFO
+src/dbgprint.egg-info/SOURCES.txt
+src/dbgprint.egg-info/dependency_links.txt
+src/dbgprint.egg-info/top_level.txt
