@@ -2,17 +2,16 @@ from termcolor import colored
 import colorama
 colorama.init()
 
-def b(i):
+def div(i):
     prefix = colored('### ', 'red')
     word = colored(str(i), 'yellow')
-    afrix = colored(' ###', 'red')
-    print('\n' + prefix + word + afrix)
+    affix = colored(' ###', 'red')
+    print('\n' + prefix + word + affix)
 
-def bEnd(i):
-    prefix = colored('### ', 'red')
-    word = colored(str(i), 'yellow')
-    afrix = colored(' ###', 'red')
-    print(prefix + word + afrix)
+def prefixer(prefix, affix):
+    output = colored(prefix + ':', 'red') + ' ' + affix
+    print(output)
+    return(output)
 
 def data(var, varName='', action=''):
     varContent = colored(str(var), 'yellow')
@@ -20,10 +19,7 @@ def data(var, varName='', action=''):
     actionName = colored(str(action), 'cyan')
     output = varColored + ' = ' + actionName + ': ' + varContent
 
-    dataName = colored('data:', 'red')
-    output = dataName + ' ' + output
-    print(output)
-    return(output)
+    return(prefixer('data', output))
 
 def ds(var, varName=''):
     varContent = colored(str(var), 'yellow')
@@ -31,16 +27,11 @@ def ds(var, varName=''):
     varColored = colored(varName, 'cyan')
     output = varColored + ': ' + varType + ': ' + varContent
 
-    dataName = colored('data-struct:', 'red')
-    output = dataName + ' ' + output
-    print(output)
-    return(output)
+    return(prefixer('data-struct', output))
 
 def pivot(var, varName=''):
     varContent = colored(str(var), 'yellow')
-    varType = colored(str(type(var)), 'white')
     varColored = colored(varName, 'cyan')
-    # output = varColored + ': ' + varType + ': ' + varContent
     output = varColored + ': ' + varContent
 
     dataName = colored('pivot:', 'red', 'on_red')
@@ -50,12 +41,7 @@ def pivot(var, varName=''):
 
 def pivotEnd(var, varName=''):
     varContent = colored(str(var), 'yellow')
-    varType = colored(str(type(var)), 'white')
     varColored = colored(varName, 'cyan')
-    # output = varColored + ': ' + varType + ': ' + varContent
     output = varColored + ': ' + varContent
 
-    dataName = colored('pivotEnd:', 'red', 'on_red')
-    output = dataName + ' ' + output
-    print(output)
-    return(output)
+    return(prefixer('pivotEnd', output))
