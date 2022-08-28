@@ -1,3 +1,18 @@
+Metadata-Version: 2.1
+Name: dbgprint
+Version: 1.0.2
+Summary: A package for a python command line terminal debugger
+Home-page: https://github.com/youhengzhou/dbgprint
+Author: YouHeng Zhou
+Author-email: youhengzhou@cmail.carleton.ca
+Project-URL: Bug Tracker, https://github.com/youhengzhou/dbgprint/issues
+Classifier: Programming Language :: Python :: 3
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Operating System :: OS Independent
+Requires-Python: >=3.6
+Description-Content-Type: text/markdown
+License-File: LICENSE
+
 # dbgprint
 
 Debug Print is a handy command line print app used for debugging loops and variable changes over time.
