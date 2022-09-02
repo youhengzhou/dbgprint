@@ -110,7 +110,7 @@ def trace(varName='', varIndex='', varContent='', pathContentStart='', pathConte
     if not pathContentStart == '':
         pathContentStart = '(' + colored(str(pathContentStart), 'grey') + ') '
     if not pathContentEnd == '':
-        pathContentEnd = '(' + colored(str(pathContentEnd), 'grey') + ') '
+        pathContentEnd = ' (' + colored(str(pathContentEnd), 'grey') + ')'
 
     output = varName + ' = ' + pathContentStart + '[' + str(varIndex) + '] = ' + str(varContent) + pathContentEnd
 
