@@ -78,6 +78,9 @@ def p(i):
     affix = colored('###', 'red')
     print(prefix + word + affix)
 
+def d(dictionary):
+    print(json.dumps(dictionary, indent=4))
+
 def prefixer(prefix, affix):
     output = colored(prefix + ':', 'red') + ' ' + affix
     print(output)
