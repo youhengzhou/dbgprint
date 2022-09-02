@@ -6,7 +6,7 @@ It has features for tracking pivots in a while and for loop, and also print the 
 
 Its dependencies are termcolor and colorama.
 
-For python package: https://pypi.org/project/dbgprint/1.0.0/
+For python package: https://pypi.org/project/dbgprint/
 
 For github repo: https://github.com/youhengzhou/dbgprint
 
