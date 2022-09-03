@@ -73,9 +73,9 @@ def div(i):
     print('\n' + prefix + word + affix + '\n')
 
 def p(i):
-    prefix = colored('###', 'red')
+    prefix = colored('### ', 'red')
     word = colored(str(i), 'yellow')
-    affix = colored('###', 'red')
+    affix = colored('### ', 'red')
     print(prefix + word + affix)
 
 def d(dictionary):
