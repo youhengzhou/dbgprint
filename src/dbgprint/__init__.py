@@ -1,5 +1,5 @@
 import json
-from termcolor import colored
+from termcolor import colored, cprint
 import colorama
 colorama.init()
 
@@ -73,13 +73,14 @@ def div(i):
     print('\n' + prefix + word + affix + '\n')
 
 def p(i):
-    prefix = colored('### ', 'red')
-    word = colored(str(i), 'yellow')
-    affix = colored(' ### ', 'red')
-    print(prefix + word + affix)
+    #prefix = colored('### ', 'red')
+    #word = colored(str(i), 'yellow')
+    #affix = colored(' ### ', 'red')
+    #print(prefix + word + affix)
+    cprint(str(i), 'yellow')
 
 def d(dictionary):
-    print(json.dumps(dictionary, indent=4))
+    cprint(json.dumps(dictionary, indent=4), 'yellow')
 
 def prefixer(prefix, affix):
     output = colored(prefix + ':', 'red') + ' ' + affix
