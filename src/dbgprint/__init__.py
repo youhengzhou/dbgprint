@@ -75,7 +75,7 @@ def div(i):
 def p(i):
     prefix = colored('### ', 'red')
     word = colored(str(i), 'yellow')
-    affix = colored('### ', 'red')
+    affix = colored(' ### ', 'red')
     print(prefix + word + affix)
 
 def d(dictionary):
