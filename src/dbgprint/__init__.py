@@ -87,19 +87,19 @@ def prefixer(prefix, affix):
     print(output)
     return(output)
 
-def data(varName='', varContent='', codeContent=''):
+def data(varName='', varContent='', note=''):
     varName = colored(str(varName), 'cyan')
 
     varContent = colored(str(varContent), 'yellow')
 
-    if not codeContent == '':
-        codeContent = ' (' + colored(str(codeContent), 'grey') + ')'
+    if not note == '':
+        note = ' (' + colored(str(note), 'grey') + ')'
 
-    output = varName + ' = ' + varContent + codeContent
+    output = varName + ' = ' + varContent + note
 
     return(prefixer('DataPrint', output))
 
-def trace(varName='', varIndex='', varContent='', pathContentStart='', pathContentEnd=''):
+def trace(varName='', varIndex='', varContent='', pathStart='', pathEnd=''):
     varName = colored(str(varName), 'cyan')
 
     if varIndex == '':
@@ -112,12 +112,12 @@ def trace(varName='', varIndex='', varContent='', pathContentStart='', pathConte
     else:
         varContent = colored(str(varContent), 'yellow')
 
-    if not pathContentStart == '':
-        pathContentStart = '(' + colored(str(pathContentStart), 'grey') + ') '
-    if not pathContentEnd == '':
-        pathContentEnd = ' (' + colored(str(pathContentEnd), 'grey') + ')'
+    if not pathStart == '':
+        pathStart = '(' + colored(str(pathStart), 'grey') + ') '
+    if not pathEnd == '':
+        pathEnd = ' (' + colored(str(pathEnd), 'grey') + ')'
 
-    output = varName + ' = ' + pathContentStart + '[' + str(varIndex) + '] = ' + str(varContent) + pathContentEnd
+    output = varName + ' = ' + pathStart + '[' + str(varIndex) + '] = ' + str(varContent) + pathEnd
 
     traceStart = colored('### Trace:', 'red', 'on_red')
     traceEnd = colored('Trace ###', 'red', 'on_red')
