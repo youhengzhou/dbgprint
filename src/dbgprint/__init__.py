@@ -119,7 +119,7 @@ def trace(varName='', varIndex='', varContent='', pathContentStart='', pathConte
 
     output = varName + ' = ' + pathContentStart + '[' + str(varIndex) + '] = ' + str(varContent) + pathContentEnd
 
-    traceStart = colored('### Trace', 'red', 'on_red')
+    traceStart = colored('### Trace:', 'red', 'on_red')
     traceEnd = colored('Trace ###', 'red', 'on_red')
     output = '\n' + traceStart + ' ' + output + ' ' + traceEnd
     print(output)
