@@ -93,7 +93,7 @@ def data(varName='', varContent='', codeContent=''):
     varContent = colored(str(varContent), 'yellow')
 
     if not codeContent == '':
-        codeContent = ' (' + colored(str(codeContent) + ')', 'grey')
+        codeContent = ' (' + colored(str(codeContent), 'grey') + ')'
 
     output = varName + ' = ' + varContent + codeContent
 
