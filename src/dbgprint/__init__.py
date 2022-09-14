@@ -92,21 +92,22 @@ def data(varName='', varContent='', codeContent=''):
 
     varContent = colored(str(varContent), 'yellow')
 
-    codeContent = colored(str(codeContent), 'grey')
+    if not codeContent == '':
+        codeContent = ' (' + colored(str(codeContent) + ')', 'grey')
 
-    output = varName + ' = ' + varContent + ' (' + codeContent + ')'
+    output = varName + ' = ' + varContent + codeContent
 
     return(prefixer('DataPrint', output))
 
 def trace(varName='', varIndex='', varContent='', pathContentStart='', pathContentEnd=''):
     varName = colored(str(varName), 'cyan')
 
-    if not varIndex:
+    if varIndex == '':
         varIndex = colored(str('None'), 'yellow')
     else:
         varIndex = colored(str(varIndex), 'yellow')
         
-    if not varContent:
+    if varContent == '':
         varContent = colored(str('None'), 'yellow')
     else:
         varContent = colored(str(varContent), 'yellow')
