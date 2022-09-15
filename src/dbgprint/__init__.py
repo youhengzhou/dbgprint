@@ -117,7 +117,7 @@ def trace(varName='', varIndex='', varContent='', pathStart='', pathEnd=''):
     if not pathEnd == '':
         pathEnd = ' (' + colored(str(pathEnd), 'grey') + ')'
 
-    output = varName + ' = ' + pathStart + '[' + str(varIndex) + '] = ' + str(varContent) + pathEnd
+    output = varName + ' = ' + pathStart + str(varIndex) + ' = ' + str(varContent) + pathEnd
 
     traceStart = colored('### Trace:', 'red', 'on_red')
     traceEnd = colored('Trace ###', 'red', 'on_red')
