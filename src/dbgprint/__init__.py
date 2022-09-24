@@ -1,3 +1,4 @@
+import collections
 import json
 from termcolor import colored, cprint
 import colorama
@@ -16,6 +17,14 @@ class ListNode:
             output['next'] = self.next.val
         strOutput = json.dumps(output)
         return strOutput
+    def toDict(self):
+        output = {}
+        output['val'] = self.val
+        if not self.next:
+            output['next'] = 'None'
+        else:
+            output['next'] = self.next.val
+        return output
 
 class TreeNode:
     def __init__(self, x):
@@ -35,6 +44,96 @@ class TreeNode:
             output['right'] = self.right.val
         strOutput = json.dumps(output)
         return strOutput
+    def toDict(self):
+        output = {}
+        output['val'] = self.val
+        if not self.left:
+            output['left'] = 'None'
+        else:
+            output['left'] = self.left.val
+        if not self.right:
+            output['right'] = 'None'
+        else:
+            output['right'] = self.right.val
+        return output
+
+def bfs(root, option=''):
+    line = collections.deque()
+    line.append(root)
+
+    levelOfList = []
+    levelOfListDetailed = []
+    levelOfDictLevel = 0
+    levelOfDict = {}
+    while True: # main routine, run until line is blank
+        if not line:
+            return levelOfList, levelOfDict, levelOfListDetailed
+
+        i = 0 # sr1, run until level end is hit
+        levelList = []
+        levelListDetailed = []
+        levelDictItem = 0
+        levelDict = {}
+        levelEnd = len(line) 
+        while True:
+            if i >= levelEnd:
+                break
+            
+            node = line.popleft()
+            if node:
+                nodeLeft = ''
+                nodeRight = ''
+                if node.left:
+                    nodeLeft = str(node.left.val)
+                if node.right:
+                    nodeRight = str(node.right.val)
+
+                levelList.append(node.val)
+                levelListDetailed.append('[' + nodeLeft + '-(' + str(node.val) + ')-' + nodeRight + ']')
+                levelDict[levelDictItem] = node.toDict()
+                line.append(node.left)
+                line.append(node.right)
+                
+            i += 1
+            levelDictItem += 1
+
+        if levelList:
+            if option == 0:
+                p(levelList)
+            if option == 1:
+                d(levelDict)
+            if option == 2:
+                p(levelListDetailed)
+            levelOfList.append(levelList)
+            levelOfListDetailed.append(levelListDetailed)
+            levelOfDict[levelOfDictLevel] = levelDict
+            levelOfDictLevel += 1
+
+index = [0]
+dfsOutputList = []
+dfsOutputDict = {}
+def dfs(root, option=''):
+    if not root:
+        return None
+    
+    # if option == 0:
+    #     trace('Node', index[0], root.toString())
+    # if option == 1:
+    #     trace('Node', index[0], root.toDict())
+
+    trace('Node', index[0], root.toString())
+    index[0] += 1
+
+    dfsOutputList.append(root.toString())
+    dfsOutputDict[index[0]] = root.toDict()
+
+    # mr = dfs(root.left,option)
+    # sr1 = dfs(root.right,option)
+
+    mr = dfs(root.left)
+    sr1 = dfs(root.right)
+
+    return dfsOutputList, dfsOutputDict
 
 def initList():
     root = ListNode(1)
