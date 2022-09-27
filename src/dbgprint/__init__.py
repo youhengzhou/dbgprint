@@ -57,6 +57,17 @@ class TreeNode:
             output['right'] = self.right.val
         return output
 
+def printList(root, option=''):
+    if not root:
+        return None
+    if option == 0:
+        p(root.val)
+    if option == 1:
+        p(root.toString())
+    if option == 2:
+        d(root.toDict())
+    printList(root.next,option)
+
 def bfs(root, option=''):
     line = collections.deque()
     line.append(root)
@@ -135,12 +146,20 @@ def dfs(root, option=''):
 
     return dfsOutputList, dfsOutputDict
 
-def initList():
-    root = ListNode(1)
-    root.next = ListNode(2)
-    root.next.next = ListNode(3)
-    root.next.next.next = ListNode(4)
-    root.next.next.next.next = ListNode(5)
+def initList(input=''):
+    if input == '':
+        root = ListNode(1)
+        root.next = ListNode(2)
+        root.next.next = ListNode(3)
+        root.next.next.next = ListNode(4)
+        root.next.next.next.next = ListNode(5)
+        return root
+
+    root = ListNode(input[0])
+    pointer = root
+    for i in range(1,len(input)):
+        pointer.next = ListNode(input[i])
+        pointer = pointer.next
     return root
 
 def initTree():
@@ -195,7 +214,6 @@ def data(varName='', varContent='', note=''):
         note = ' (' + colored(str(note), 'grey') + ')'
 
     output = varName + ' = ' + varContent + note
-
     return(prefixer('DataPrint', output))
 
 def trace(varName='', varIndex='', varContent='', pathStart='', pathEnd=''):
