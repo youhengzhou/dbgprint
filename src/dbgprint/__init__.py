@@ -57,7 +57,7 @@ class TreeNode:
             output['right'] = self.right.val
         return output
 
-def printList(root, option=''):
+def printList(root, option=0):
     if not root:
         return None
     if option == 0:
@@ -68,7 +68,7 @@ def printList(root, option=''):
         d(root.toDict())
     printList(root.next,option)
 
-def bfs(root, option=''):
+def bfs(root, option=None):
     line = collections.deque()
     line.append(root)
 
@@ -123,7 +123,7 @@ def bfs(root, option=''):
 index = [0]
 dfsOutputList = []
 dfsOutputDict = {}
-def dfs(root, option=''):
+def dfs(root, option=None):
     if not root:
         return None
     
