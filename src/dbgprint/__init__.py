@@ -57,7 +57,17 @@ class TreeNode:
             output['right'] = self.right.val
         return output
 
-def printList(root, option=0):
+def printList(root):
+    outputList = []
+    while True:
+        if not root:
+            return outputList
+        p(root.val)
+        outputList.append(root.val)
+        root = root.next
+
+outputList = []
+def printListRec(root, option=0):
     if not root:
         return None
     if option == 0:
@@ -66,7 +76,9 @@ def printList(root, option=0):
         p(root.toString())
     if option == 2:
         d(root.toDict())
-    printList(root.next,option)
+    outputList.append(root.val)
+    printListRec(root.next,option)
+    return outputList
 
 def bfs(root, option=None):
     line = collections.deque()
