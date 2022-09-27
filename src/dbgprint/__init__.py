@@ -57,17 +57,22 @@ class TreeNode:
             output['right'] = self.right.val
         return output
 
-def printList(root):
+def printList(root, option=None):
     outputList = []
     while True:
         if not root:
             return outputList
-        p(root.val)
+        if option == 0:
+            p(root.val)
+        if option == 1:
+            p(root.toString())
+        if option == 2:
+            d(root.toDict())
         outputList.append(root.val)
         root = root.next
 
 outputList = []
-def printListRec(root, option=0):
+def printListRec(root, option=None):
     if not root:
         return None
     if option == 0:
