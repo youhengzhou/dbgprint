@@ -1,7 +1,7 @@
 import collections
 import json
-from termcolor import colored, cprint
 import colorama
+from termcolor import colored, cprint
 colorama.init()
 
 class ListNode:
@@ -57,6 +57,14 @@ class TreeNode:
             output['right'] = self.right.val
         return output
 
+def createList(array):
+    root = ListNode(array[0])
+    walker = root
+    for i in range(1,len(array)):
+        walker.next = ListNode(array[i])
+        walker = walker.next
+    return root
+
 def printList(root, option=None):
     outputList = []
     while True:
@@ -84,6 +92,24 @@ def printListRec(root, option=None):
     outputList.append(root.val)
     printListRec(root.next,option)
     return outputList
+
+def printListInfo(root):
+    length = 0
+    normal = root
+    slow = root
+    fast = root
+    while True:
+        if not normal:
+            break
+        length += 1
+        normal = normal.next
+    while True:
+        if not fast.next or not fast.next.next:
+            break
+        slow = slow.next
+        fast = fast.next.next
+    second = slow.next
+    cprint('start: ' + str(root.val) + ', middle: ' + str(slow.val) + ', second half: ' + str(second.val) + ', end: ' + str(fast.val) + ', length: ' + str(length), 'yellow')
 
 def bfs(root, option=None):
     line = collections.deque()
